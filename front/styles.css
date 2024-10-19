@@ -1,0 +1,128 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #D9D9D9;
+    height: 100%;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+main {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.window {
+    background-color: white;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.home-header {
+    height: 150px;
+    background: linear-gradient(to right, #007AFF, #0359B7, #002E60);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+}
+
+.recommendation, .vacancy, .cv-content {
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.recommendation h2, .vacancy h2, .cv-content h2 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.recommendation p, .vacancy p {
+    color: #666;
+    line-height: 1.5;
+}
+
+.vacancy ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.vacancy li {
+    padding: 10px;
+    background-color: #e0e0e0;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.navbar {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+}
+
+.nav-item {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    color: black;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.nav-item.active {
+    color: #007AFF;
+}
+
+.icon {
+    font-size: 24px;
+}
+
+.cv-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cv-section {
+    background-color: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.cv-section h3 {
+    margin: 0 0 10px;
+    color: #007AFF;
+}
+
+.cv-section p {
+    margin: 0;
+    color: #333;
+}

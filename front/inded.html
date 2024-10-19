@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Web App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <main id="content">
+            <div class="window home-header">
+                Hello Aliya $100
+            </div>
+            <div class="window recommendation">
+                <h2>Recommendations</h2>
+                <p>Here are some tailored recommendations for you to explore and enjoy. Check back regularly for new updates!</p>
+            </div>
+            <div class="window vacancy">
+                <h2>Job Vacancies</h2>
+                <ul>
+                    <li>Frontend Developer</li>
+                    <li>Backend Developer</li>
+                    <li>UX/UI Designer</li>
+                    <li>Project Manager</li>
+                </ul>
+            </div>
+        </main>
+        <nav class="navbar">
+            <div class="nav-item" id="home">
+                <span class="icon">🏠</span>
+            </div>
+            <div class="nav-item" id="search">
+                <span class="icon">🔍</span>
+            </div>
+            <div class="nav-item active" id="cv">
+                <span class="icon">📄</span>
+            </div>
+            <div class="nav-item" id="profile">
+                <span class="icon">👤</span>
+            </div>
+        </nav>
+    </div>
+    <script>
+        const content = document.getElementById('content');
+        const navItems = document.querySelectorAll('.nav-item');
+        
+        function setActiveTab(tabId) {
+            navItems.forEach(item => item.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            
+            if (tabId === 'home') {
+                content.innerHTML = `
+                    <div class="window home-header">
+                        Hello Aliya $100
+                    </div>
+                    <div class="window recommendation">
+                        <h2>Recommendations</h2>
+                        <p>Here are some tailored recommendations for you to explore and enjoy. Check back regularly for new updates!</p>
+                    </div>
+                    <div class="window vacancy">
+                        <h2>Job Vacancies</h2>
+                        <ul>
+                            <li>Frontend Developer</li>
+                            <li>Backend Developer</li>
+                            <li>UX/UI Designer</li>
+                            <li>Project Manager</li>
+                        </ul>
+                    </div>
+                `;
+            } else if (tabId === 'cv') {
+                content.innerHTML = `
+                    <div class="window cv-content">
+                        <h2>CV Overview</h2>
+                        <div class="cv-section">
+                            <h3>Introduction</h3>
+                            <p>Aliya is a passionate and skilled software engineer specializing in frontend and backend development, with a keen interest in creating immersive digital experiences.</p>
+                        </div>
+                        <div class="cv-section">
+                            <h3>Skills</h3>
+                            <p>JavaScript, React, CSS, HTML, Node.js, Python, UI/UX Design, Agile Methodologies.</p>
+                        </div>
+                        <div class="cv-section">
+                            <h3>Experience</h3>
+                            <p>3 years at WebDev Ltd as a Fullstack Developer where I contributed to numerous projects, improving customer engagement and overall application performance.</p>
+                        </div>
+                        <div class="cv-section">
+                            <h3>Education</h3>
+                            <p>Bachelor's Degree in Computer Science from Qazaqstan National University.</p>
+                        </div>
+                    </div>
+                `;
+            } else if (tabId === 'search') {
+                content.innerHTML = `
+                    <div class="window">
+                        <div class="search-bar">
+                            <input type="text" placeholder="Find vacancies" id="searchInput">
+                        </div>
+                        <div class="tag-vacancy-recommendations" id="recommendationContainer">
+                            <div class="tag-recommendations">
+                                <h2>Tag recommendations:</h2>
+                                <div>Fullstack</div>
+                                <div>Frontend</div>
+                                <div>Backend</div>
+                                <div>Qazaqstan</div>
+                                <div>WebDev online</div>
+                            </div>
+                            <div class="vacancy-recommendations">
+                                <h2>Vacancies recommendations:</h2>
+                                <div>Java Developer</div>
+                                <div>Data Analyst</div>
+                                <div>Cybersecurity Expert</div>
+                                <div>AI Specialist</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                const searchInput = document.getElementById('searchInput');
+                const recommendationContainer = document.getElementById('recommendationContainer');
+                
+                searchInput.addEventListener('focus', () => {
+                    recommendationContainer.classList.add('hidden');
+                });
+
+                searchInput.addEventListener('blur', () => {
+                    recommendationContainer.classList.remove('hidden');
+                });
+            } else {
+                content.innerHTML = `<div class="window"><h2>${tabId} Content</h2></div>`;
+            }
+        }
+
+        document.getElementById('home').onclick = () => setActiveTab('home');
+        document.getElementById('search').onclick = () => setActiveTab('search');
+        document.getElementById('cv').onclick = () => setActiveTab('cv');
+        document.getElementById('profile').onclick = () => setActiveTab('profile');
+    </script>
+</body>
+</html>
